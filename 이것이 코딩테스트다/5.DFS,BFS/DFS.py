@@ -1,5 +1,6 @@
 # DFS
-
+# 깊이 우선 탐색으로, 그래프에서 깊은 부분을 우선적으로 탐색하는 알고리즘
+# stack 자료구조를 이용
 def DFS(graph, v, visited):
     
     visited[v] = True
