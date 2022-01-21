@@ -1,15 +1,15 @@
-def solution(progresses, speeds):
-    answer = []
-    
-    while progresses:
-        for i, (j, k) in enumerate(zip(progresses, speeds)):
-            progresses[i] += k
-        if progresses[0] >= 100:
-            cnt = 0
-            while progresses and progresses[0] >= 100:
-                cnt += 1
-                progresses.pop(0)
-                speeds.pop(0)
-            answer.append(cnt)
-    
+import heapq
+def solution(scoville, K):
+    answer = 0
+    tmp = 0
+    scoville.sort()
+    while(scoville[0] < K):
+        if len(scoville) <= 1:
+            return -1
+        else:
+            a = heapq.heappop(scoville)
+            b = heapq.heappop(scoville)
+            tmp = a + (2 * b)
+            heapq.heappush(scoville, tmp)
+            answer += 1
     return answer
